@@ -1,0 +1,16 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - paystackSecretKey
+    properties:
+      paystackSecretKey:
+        type: string
+        description: "Your Paystack secret key for API access"
+  commandFunction: |
+    (config) => ({
+      command: 'node',
+      args: ['build/index.js'],
+      env: { PAYSTACK_SECRET_KEY: config.paystackSecretKey }
+    })
