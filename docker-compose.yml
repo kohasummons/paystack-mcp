@@ -1,0 +1,13 @@
+services:
+  paystack-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kohasummons/paystack-mcp
+    container_name: paystack-mcp
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    environment:
+      - PAYSTACK_SECRET_KEY=${PAYSTACK_SECRET_KEY}
+      - NODE_ENV=${NODE_ENV:-production} 

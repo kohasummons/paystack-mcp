@@ -1,0 +1,59 @@
+{
+  "name": "@kohasummons/paystack-mcp",
+  "version": "0.1.0",
+  "description": "The Paystack MCP server for your AI agents",
+  "main": "build/index.js",
+  "type": "module",
+  "bin": {
+    "paystack-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "clean": "rm -rf build",
+    "lint": "eslint \"./**/*.ts*\"",
+    "ci": "npm run build",
+    "dev:debug": "npx @modelcontextprotocol/inspector node ./build/index.js",
+    "prettier": "prettier './**/*.{js,ts,md,html,css}' --write",
+    "prettier-check": "prettier './**/*.{js,ts,md,html,css}' --check",
+    "prepublishOnly": "npm run ci",
+    "prepare": "[ -n \"$CI\" ] || [ -n \"$DOCKER\" ] || husky"
+  },
+  "keywords": [
+    "mcp",
+    "paystack",
+    "ai"
+  ],
+  "author": "Joshua Omobola <Omobolathejoshua@gmail.com> (https://koha.wtf/)",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.2.6",
+    "@eslint/eslintrc": "^3.2.1",
+    "@eslint/js": "^9.25.1",
+    "@types/node": "^22.15.2",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.5.1",
+    "ts-node": "^10.9.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix"
+  }
+}

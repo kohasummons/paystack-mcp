@@ -1,0 +1,9 @@
+/memory-bank
+/build
+/dist
+/node_modules
+
+.env
+.env.*
+
+DOCKER.md
