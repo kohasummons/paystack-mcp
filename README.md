@@ -306,4 +306,4 @@ See [DOCKER.md](DOCKER.md) for details on building and running with Docker.
 
 ## License
 
-ISC
+MIT
